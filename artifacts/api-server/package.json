@@ -1,0 +1,29 @@
+{
+  "name": "@workspace/api-server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc --build && node --input-type=module -e \"import('./dist/index.js')\" || true",
+    "typecheck": "tsc --build --emitDeclarationOnly",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@workspace/db": "workspace:*",
+    "@workspace/api-zod": "workspace:*",
+    "@workspace/integrations-anthropic-ai": "workspace:*",
+    "drizzle-orm": "catalog:",
+    "express": "^5.0.1",
+    "cors": "^2.8.5",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.2",
+    "@types/node": "catalog:",
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "tsx": "catalog:"
+  }
+}
